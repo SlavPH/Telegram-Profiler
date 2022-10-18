@@ -88,14 +88,13 @@ bot = telebot.TeleBot(Token)
 ## START COMMAND
 @bot.message_handler(commands=['start'])
 def start_command(message):
-    user = message.from_user.first_nam
+    user = message.from_user.first_name
     bot.send_chat_action(message.chat.id, "typing")
     bot.reply_to(message, f"Hello {user}! Send Chat-ID")
 
 ## PING COMMAND
 @bot.message_handler(commands=['ping'])
 def start_command(message):
-    user = message.from_user.first_nam    
     bot.send_chat_action(message.chat.id, "typing")
     bot.reply_to(message, "Running perfectly")
 
