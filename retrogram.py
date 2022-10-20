@@ -68,6 +68,9 @@ def all_handler(message):
             lock()
             result = Telegram(cid)
             if result == None:
+                bot.edit_message_text(text="[+] Target not found", chat_id=message.chat.id, message_id=msg1.message_id)
+                unlock()
+            else:
                 bot.edit_message_text(text=f"""
 # BrainSec !@#$
 #-----> id = {cid}
@@ -75,9 +78,6 @@ def all_handler(message):
 #-----> Link1 = t.me/+{result}
 #-----> Link2 = tg://user?id={cid}
 """, chat_id=message.chat.id, message_id=msg1.message_id, disable_web_page_preview=True)
-                unlock()
-            else:
-                bot.edit_message_text(text=result, chat_id=message.chat.id, message_id=msg1.message_id)
                 unlock()
         except:
             bot.edit_message_text(text="[+] Process failed! Do it again.", chat_id=message.chat.id, message_id=msg1.message_id)
