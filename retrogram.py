@@ -77,7 +77,7 @@ def Telegram(cid):
             csvreader = csv.reader(data)
             for row in csvreader:
                 if row[0] == cid:
-                    return f"[+] Target: +" + row[1]
+                    return row[1]
                     break
 
 ## DEFINING BOT
@@ -99,7 +99,7 @@ def start_command(message):
     bot.reply_to(message, "Running perfectly")
 
 ## MESSAGE HANDLER
-@bot.message_handler(func = lambda message: True)
+@bot.message_handler(func = lambda message: message.text.isnumeric())
 def all_handler(message):
     global status
 
@@ -110,7 +110,13 @@ def all_handler(message):
             lock()
             result = Telegram(cid)
             if result == None:
-                bot.edit_message_text(text="[+] Target not found", chat_id=message.chat.id, message_id=msg1.message_id)
+                bot.edit_message_text(text=f"""
+# BrainSec !@#$
+#-----> id = {cid}
+#-----> Number = +{result}
+#-----> Link1 = t.me/+{result}
+#-----> Link2 = tg://user?id={cid}
+""", chat_id=message.chat.id, message_id=msg1.message_id, disable_web_page_preview=True)
                 unlock()
             else:
                 bot.edit_message_text(text=result, chat_id=message.chat.id, message_id=msg1.message_id)
