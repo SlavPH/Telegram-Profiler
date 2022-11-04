@@ -39,7 +39,7 @@ def Telegram(cid):
                     break
 
 ## DEFINING BOT
-Token = "5611561145:AAG5Avhre_Q3XHo0mRK2geWcvqUTvi7NeOQ"
+Token = "Your-Token-Here"
 bot = telebot.TeleBot(Token)
 
 
@@ -75,8 +75,6 @@ def all_handler(message):
 # BrainSec !@#$
 #-----> id = {cid}
 #-----> Number = +{result}
-#-----> Link1 = t.me/+{result}
-#-----> Link2 = tg://user?id={cid}
 """, chat_id=message.chat.id, message_id=msg1.message_id, disable_web_page_preview=True)
                 unlock()
         except:
