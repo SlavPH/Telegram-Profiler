@@ -1,2 +1,2 @@
-web: python retrogram.py
-worker: python retrogram.py 
+web: python3 app.py
+worker: python3 app.py 
