@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 ## TELEGRAM PROFILER BOT
-## BY GOTHPH
+## BY SlavPH
 
 ## IMPORTS
 import telebot
@@ -72,9 +72,8 @@ def all_handler(message):
                 unlock()
             else:
                 bot.edit_message_text(text=f"""
-# BrainSec !@#$
-#-----> id = {cid}
-#-----> Number = +{result}
+-> id = {cid}
+-> Number = +{result}
 """, chat_id=message.chat.id, message_id=msg1.message_id, disable_web_page_preview=True)
                 unlock()
         except:
