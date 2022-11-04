@@ -74,7 +74,7 @@ def all_handler(message):
                 bot.edit_message_text(text=f"""
 -> id = {cid}
 -> Number = +{result}
-""", chat_id=message.chat.id, message_id=msg1.message_id, disable_web_page_preview=True)
+""", chat_id=message.chat.id, message_id=msg1.message_id)
                 unlock()
         except:
             bot.edit_message_text(text="[+] Process failed! Do it again.", chat_id=message.chat.id, message_id=msg1.message_id)
